@@ -1,21 +1,21 @@
 /// <reference types = "Cypress"/>
 
-describe("Checkbox Options",function(){
+describe("Test Suite", function(){
 
-    it("My First Test Case", function(){
-
-        //Test Steps
+    it("Test Case", function(){
 
         cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
 
-        cy.get("#checkBoxOption3").click().should("be.checked").and("have.value", "option3")
+        // cy.get(".mouse-hover-content").invoke('show')
 
-        //Uncheck
+        // cy.contains("Top").click()
 
-        cy.get("#checkBoxOption3").uncheck().should("not.be.checked")
+        // cy.url().should("include", "top")
 
-        //ProperMethod
+        //Another Method
 
-        cy.get("input[type='checkbox']").check(["option1", "option2"])
+        cy.contains("Reload").click({force:true})
+
+
     })
 })

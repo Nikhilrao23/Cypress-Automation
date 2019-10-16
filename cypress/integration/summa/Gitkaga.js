@@ -1,21 +1,51 @@
+
 /// <reference types = "Cypress"/>
 
-describe("Test Suite", function(){
+describe("Test Framework", function(){
+
+    before(function(){
+
+        cy.fixture('ghum').then(function(holi){
+
+            this.noli = holi
+        })
+
+    })
 
     it("Test Case", function(){
 
-        cy.visit("https://rahulshettyacademy.com/AutomationPractice/")
+        cy.visit("https://rahulshettyacademy.com/angularpractice/")
 
-        // cy.get(".mouse-hover-content").invoke('show')
+        cy.get("input[name='name']:nth-child(2)").type(this.noli.name)
 
-        // cy.contains("Top").click()
+        cy.get("#exampleFormControlSelect1").select(this.noli.gender)
 
-        // cy.url().should("include", "top")
+        cy.get("input[name='name']:nth-child(1)").should("have.value", this.noli.name)
 
-        //Another Method
+        cy.get("#exampleFormControlSelect1").should("have.value", this.noli.gender)
 
-        cy.contains("Reload").click({force:true})
+        
+        cy.get("input[name='name']:nth-child(2)").should("have.attr", "minlength", "2")
+
+        cy.get("#inlineRadio3").should("be.disabled")
+
+        cy.get(':nth-child(2) > .nav-link').click()
+
+        this.noli.productName.forEach(function(element) {
+
+            cy.addProduct(element)
+
+          });
 
 
     })
+
 })
+
+
+
+/*What we are planning to do
+Framework Building
+1. We will use Hooks/ Annotations
+
+*/

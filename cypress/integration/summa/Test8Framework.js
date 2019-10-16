@@ -1,5 +1,5 @@
 /// <reference types = "Cypress"/>
-
+import Homepage from "../pageObejcts/HomePage"
 describe ("Test Framework", function(){
 
     before(function() {
@@ -14,6 +14,8 @@ describe ("Test Framework", function(){
     })
 
     it("First Test Case", function() {
+
+        const homepage = new Homepage()
 
         cy.visit("https://rahulshettyacademy.com/angularpractice/")
 

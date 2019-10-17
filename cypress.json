@@ -1,6 +1,6 @@
 {
 
-    "defaultCommandTimeout": 400
+    "defaultCommandTimeout": 8000
 
 
 

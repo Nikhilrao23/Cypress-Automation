@@ -40,7 +40,29 @@ describe ("Test Framework", function(){
             cy.productAdd(element)
         })
 
+        productPage.getCheckoutButton().click()
 
+        productPage.getCompleteCheckout().click()
+
+        cy.get("#country").type("India")
+
+        cy.wait(5000)
+
+        
+        cy.get('.suggestions > ul > li > a').click()
+
+        cy.get("#checkbox2").click({force:true})
+
+        cy.get("input[type ='submit']").click()
+
+        //cy.get('.alert').should("have.include", "Success! Thank you! Your order will be delivered in next few weeks :-).")
+
+        cy.get('.alert').then(function(text){
+
+            const textEle = text.text()
+
+            expect(textEle.includes("Success")).to.be.true
+        })
     })
 })
 

@@ -1,5 +1,8 @@
 /// <reference types = "Cypress"/>
+
 import Homepage from "../pageObejcts/HomePage"
+import ProductPage from "../pageObejcts/ProductPage"
+
 describe ("Test Framework", function(){
 
     before(function() {
@@ -14,32 +17,27 @@ describe ("Test Framework", function(){
     })
 
     it("First Test Case", function() {
-
-        const homepage = new Homepage()
+        //Created Object for your class
+        const homePage =new Homepage()
+        const productPage = new ProductPage()
 
         cy.visit("https://rahulshettyacademy.com/angularpractice/")
 
-        cy.get("input[name = 'name']:nth-child(2)").type(this.nook.name)
+        homePage.getName().type(this.nook.name)
 
-        cy.get("#exampleFormControlSelect1").select(this.nook.gender)
+        homePage.getGender().select(this.nook.gender)
 
-        cy.get("input[name = 'name']:nth-child(1)").should("have.value", this.nook.name)
+        homePage.getTwoWayDataBinding().should("have.value", this.nook.name)
 
-        cy.get("input[name = 'name']:nth-child(2)").should("have.attr", "minlength", "2")
+        homePage.getName().should("have.attr", "minlength", "2")
 
-        cy.get("#inlineRadio3").should("be.disabled")
+        homePage.getEntrepreneur().should("be.disabled")
 
-        cy.get(":nth-child(2) > .nav-link").click()
+        homePage.getShopButton().click()
 
-        cy.get('h4.card-title').each(($el, index, $list) => {
+        this.nook.mobileProduct.forEach(function(element){
 
-            if($el.text().includes("Blackberry"))
-            {
-                cy.get('button.btn.btn-info').eq(index).click()
-
-            }
-
-            
+            cy.productAdd(element)
         })
 
 

@@ -12,21 +12,36 @@
 // -- This is a parent command --
 // Cypress.Commands.add("login", (email, password) => { ... })
 //
-Cypress.Commands.add("addProduct", (productName) => {
+// Cypress.Commands.add("addProduct", (productName) => {
+
+//     cy.get("h4.card-title").each(($el, index, $list) => {
+
+//         const text = $el.text()
+    
+//         if(text.includes(productName))
+//         {
+//             cy.get(".btn.btn-info").eq(index).click()
+//         }
+    
+    
+//     })
+// })
+
+Cypress.Commands.add("productAdd", (mobileProduct) => {
 
     cy.get("h4.card-title").each(($el, index, $list) => {
 
         const text = $el.text()
     
-        if(text.includes(productName))
+        if(text.includes(mobileProduct))
         {
             cy.get(".btn.btn-info").eq(index).click()
         }
     
     
     })
-})
 
+})
 
 //
 // -- This is a child command --

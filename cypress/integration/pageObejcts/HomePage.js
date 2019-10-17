@@ -34,6 +34,11 @@ getShopButton()
     return cy.get(":nth-child(2) > .nav-link")
 }
 
+getTwoWayDataBinding(){
+
+    return cy.get("input[name = 'name']:nth-child(1)")
+}
+
 }
 
 export default Homepage;

@@ -1,7 +1,9 @@
 {
 
   "name": "Poriki",
-  "gender": "Male"
+  "gender": "Male",
+  "mobileProduct" : ["Blackberry", "Nokia Edge"]
+
 
 
 }

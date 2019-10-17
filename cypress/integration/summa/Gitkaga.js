@@ -31,11 +31,11 @@ describe("Test Framework", function(){
 
         cy.get(':nth-child(2) > .nav-link').click()
 
-        this.noli.productName.forEach(function(element) {
+        // this.noli.productName.forEach(function(element) {
 
-            cy.addProduct(element)
+        //     cy.addProduct(element)
 
-          });
+        //   });
 
 
     })

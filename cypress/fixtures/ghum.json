@@ -1,7 +1,6 @@
 {
-
-    "name": "Poriki",
-    "gender" : "Female",
-    "productName" : ["Blackberry","Nokia Edge"]
+    "name": "Nikhil",
+    "gender": "Male",
+    "pName": ["iphone X", "Samsung Note 8"]
 
 }

@@ -1,70 +1,70 @@
-/// <reference types = "Cypress"/>
+// /// <reference types = "Cypress"/>
 
-import Homepage from "../pageObejcts/HomePage"
-import ProductPage from "../pageObejcts/ProductPage"
+// import Homepage from "../pageObejcts/HomePage"
+// import ProductPage from "../pageObejcts/ProductPage"
 
-describe ("Test Framework", function(){
+// describe ("Test Framework", function(){
 
-    before(function() {
+//     before(function() {
 
-        // Runs Before all the tests Once
+//         // Runs Before all the tests Once
 
-        cy.fixture('example').then(function(book){
+//         cy.fixture('example').then(function(book){
 
-            this.nook = book
+//             this.nook = book
 
-        })
-    })
+//         })
+//     })
 
-    it("First Test Case", function() {
-        //Created Object for your class
-        const homePage =new Homepage()
-        const productPage = new ProductPage()
+//     it("First Test Case", function() {
+//         //Created Object for your class
+//         const homePage =new Homepage()
+//         const productPage = new ProductPage()
 
-        cy.visit("https://rahulshettyacademy.com/angularpractice/")
+//         cy.visit("https://rahulshettyacademy.com/angularpractice/")
 
-        homePage.getName().type(this.nook.name)
+//         homePage.getName().type(this.nook.name)
 
-        homePage.getGender().select(this.nook.gender)
+//         homePage.getGender().select(this.nook.gender)
 
-        homePage.getTwoWayDataBinding().should("have.value", this.nook.name)
+//         homePage.getTwoWayDataBinding().should("have.value", this.nook.name)
 
-        homePage.getName().should("have.attr", "minlength", "2")
+//         homePage.getName().should("have.attr", "minlength", "2")
 
-        homePage.getEntrepreneur().should("be.disabled")
+//         homePage.getEntrepreneur().should("be.disabled")
 
-        homePage.getShopButton().click()
+//         homePage.getShopButton().click()
 
-        this.nook.mobileProduct.forEach(function(element){
+//         this.nook.mobileProduct.forEach(function(element){
 
-            cy.productAdd(element)
-        })
+//             cy.productAdd(element)
+//         })
 
-        productPage.getCheckoutButton().click()
+//         productPage.getCheckoutButton().click()
 
-        productPage.getCompleteCheckout().click()
+//         productPage.getCompleteCheckout().click()
 
-        cy.get("#country").type("India")
+//         cy.get("#country").type("India")
 
-        cy.wait(5000)
+//         cy.wait(5000)
 
         
-        cy.get('.suggestions > ul > li > a').click()
+//         cy.get('.suggestions > ul > li > a').click()
 
-        cy.get("#checkbox2").click({force:true})
+//         cy.get("#checkbox2").click({force:true})
 
-        cy.get("input[type ='submit']").click()
+//         cy.get("input[type ='submit']").click()
 
-        //cy.get('.alert').should("have.include", "Success! Thank you! Your order will be delivered in next few weeks :-).")
+//         //cy.get('.alert').should("have.include", "Success! Thank you! Your order will be delivered in next few weeks :-).")
 
-        cy.get('.alert').then(function(text){
+//         cy.get('.alert').then(function(text){
 
-            const textEle = text.text()
+//             const textEle = text.text()
 
-            expect(textEle.includes("Success")).to.be.true
-        })
-    })
-})
+//             expect(textEle.includes("Success")).to.be.true
+//         })
+//     })
+// })
 
 /*
 Testing Steps

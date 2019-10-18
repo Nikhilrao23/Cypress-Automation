@@ -18,7 +18,8 @@ describe("Test Framework", function(){
 
         //Test Steps
 
-        cy.visit("https://rahulshettyacademy.com/angularpractice/")
+        //Environmental Variables
+        cy.visit(Cypress.env('url') + "/angularpractice/")
 
         cy.get("input[name = 'name']:nth-child(2)").type(this.bub.name)
 

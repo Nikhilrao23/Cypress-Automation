@@ -31,15 +31,29 @@ describe("Test Framework", function() {
 
         cy.get(':nth-child(2) > .nav-link').click()
 
-        cy.get("h4.card-title").each(($el, index, $list) => {
+        this.nook.productName.forEach(function(ele){
 
-            const textVal = $el.text()
+            cy.selectProduct(ele)
+        })
 
-            if (textVal.includes("Blackberry"))
-            {
-                cy.get(".btn.btn-info").eq(index).click()
-            }
+        cy.get(".btn.btn-primary").click()
 
+        cy.get(".btn.btn-success").click()
+
+        cy.get('#country').type("India")
+
+        cy.wait(5000)
+
+        cy.get(".suggestions > ul > li > a").click()
+
+        cy.get("#checkbox2").click({force:true})
+
+        cy.get("input[type ='submit']").click()
+
+        cy.get('.alert').then(function(sucText){
+
+            const success = sucText.text()
+            expect(success.includes("Success")).to.be.true
         })
 
     })

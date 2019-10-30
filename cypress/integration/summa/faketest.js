@@ -1,12 +1,14 @@
 /// <reference types = "Cypress"/>
 
+
+
 describe("My First Test Suite", function(){
 
     it("Test Case", function(){
-
+        
         cy.visit("https://example.cypress.io/commands/network-requests")
         cy.server()
-
+        let messageTire = "Page Not Loading"
         cy.route(
             {
                 method: 'PUT',
@@ -14,7 +16,7 @@ describe("My First Test Suite", function(){
                 status: 404,
                 response:
                 {
-                    error: "Hey Comment doesn't exist"
+                    error: messageTire
                 },
                 delay: 1000
             }
@@ -22,7 +24,7 @@ describe("My First Test Suite", function(){
 
     cy.get('.network-put').click()
 
-    cy.get('.network-put-comment').should('contain', 'Hey Comment doesn\'t exist')
+    cy.get('.network-put-comment').should('contain', messageTire)
     
     })
 })

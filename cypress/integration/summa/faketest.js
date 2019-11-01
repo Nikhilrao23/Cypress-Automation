@@ -1,30 +1,28 @@
-/// <reference types = "Cypress"/>
+///<reference types = "Cypress"/>
 
-
-
-describe("My First Test Suite", function(){
+describe("XHR Testing with Cypress", function(){
 
     it("Test Case", function(){
-        
+
         cy.visit("https://example.cypress.io/commands/network-requests")
+
+        const message = "Error da dei"
         cy.server()
-        let messageTire = "Page Not Loading"
-        cy.route(
+
+        cy.route({
+
+            method: 'PUT',
+            url: 'comments/*',
+            status: 404,
+            response:
             {
-                method: 'PUT',
-                url: 'comments/*',
-                status: 404,
-                response:
-                {
-                    error: messageTire
-                },
-                delay: 1000
-            }
-        ).as('Update Comment')
+                error :  message
+            },
+            delay: 1000
+        })
 
-    cy.get('.network-put').click()
+        cy.get(".network-put").click()
 
-    cy.get('.network-put-comment').should('contain', messageTire)
-    
+        cy.get(".network-put-comment").should("contain", message)
     })
 })
